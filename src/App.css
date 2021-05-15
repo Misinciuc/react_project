@@ -8,7 +8,7 @@ body {
     display: grid;
     grid-template-columns: 15% 83vh 8%;
     grid-template-rows: 14% auto auto;
-    grid-gap: 5px;
+    grid-gap: 8px;
 }
 
 .header_text {

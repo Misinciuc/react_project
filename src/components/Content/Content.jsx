@@ -1,5 +1,5 @@
 import React from 'react';
-import paris from '../paris.jpeg';
+import paris from './paris.jpeg';
 
 const Content = () => {
     return(

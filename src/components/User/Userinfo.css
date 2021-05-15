@@ -1,0 +1,10 @@
+.user_birth {
+    background-color: cornflowerblue;
+    align-self: end;
+    grid-row: 3 / 4;
+    grid-column: 2 / 4;
+}
+
+.user_info h3 {
+    margin: 0.5rem 0;
+}
