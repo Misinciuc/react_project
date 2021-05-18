@@ -5,19 +5,19 @@ const Nav = () => {
         <nav className={s.side_bar}>
         <ul className={s.list_item}>
           <li>
-            <a href ="profile">Profile</a>
+            <a href ="Content">Profile</a>
           </li>
           <li>
-            <a href ="messages">Messages</a>
+            <a href ="Messages">Messages</a>
           </li>
           <li>
-            <a href ="#">News</a>
+            <a href ="News">News</a>
           </li>
           <li>
-            <a href ="#">Music</a>
+            <a href ="Music">Music</a>
           </li>
           <li>
-            <a href ="#">Settings</a>
+            <a href ="Set">Settings</a>
           </li>
         </ul>
       </nav>
