@@ -1,6 +1,7 @@
+import s from './Header.module.css';
  const Header_text = () => {
     return(
-        <div className="header_text">
+        <div className={s.header_text}>
             <h1>Fredom for everyone</h1>
         </div>
     )

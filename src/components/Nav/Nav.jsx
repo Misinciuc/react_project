@@ -1,9 +1,9 @@
 import React from 'react';
-import './Nav.css';
+import s from './Nav.module.css';
 const Nav = () => {
     return (
-        <nav className="side_bar">
-        <ul className="list_item">
+        <nav className={s.side_bar}>
+        <ul className={s.list_item}>
           <li>
             <a href ="#">Profile</a>
           </li>
