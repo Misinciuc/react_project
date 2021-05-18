@@ -1,0 +1,20 @@
+.logo_nav {
+    margin-bottom: 0.5rem;
+    width: 13vh;
+    padding-left: 1.5rem;
+    padding-top: 0.5rem;
+}
+
+.main_logo {
+    background-color: rgb(198, 250, 230);
+    margin-bottom: 0.3rem;
+}
+
+.header_text {
+    background-color: rgb(198, 250, 230);
+    text-align: center;
+    grid-row: 1 / 2;
+    grid-column: 2 / 4;
+    margin-bottom: 0.3rem;
+    color: crimson;
+}
