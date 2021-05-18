@@ -2,38 +2,11 @@ body {
     background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f5b26a);
 }
 
-.container {
-    margin-left: 11%;
-    margin-top: 8%;
+.container{
     display: grid;
-    grid-template-columns: 15% 83vh 8%;
-    grid-template-rows: 14% auto auto;
-}
-
-.content_pic {
-    grid-row: 2 / 3;
-    grid-column: 2 / 3;
-}
-
-.paris {
-    display: block;
-    width: 100%;
-}
-
-.user_info {
-    background-color: cornflowerblue;
-    padding-left: 5%;
-    align-self: end;
-    grid-row: 3 / 4;
-    grid-column: 2 / 4;
-}
-
-.user_info h5 {
-    margin: 0.5rem 0;
-}
-
-.side_right {
-    background-color: cornsilk;
-    grid-row: 2 / 3;
-    grid-column: 3 / 4;
+    grid-template-columns: 15% 75% 10%;
+    grid-template-rows: 5vh 100% 5%;
+    grid-template-areas: "head head head"
+                        "nav cont side"
+                        "nav cont side";
 }

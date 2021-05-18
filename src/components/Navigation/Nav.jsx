@@ -5,10 +5,10 @@ const Nav = () => {
         <nav className={s.side_bar}>
         <ul className={s.list_item}>
           <li>
-            <a href ="#">Profile</a>
+            <a href ="profile">Profile</a>
           </li>
           <li>
-            <a href ="#">Messages</a>
+            <a href ="messages">Messages</a>
           </li>
           <li>
             <a href ="#">News</a>

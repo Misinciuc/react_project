@@ -1,21 +1,20 @@
 import React from 'react';
 import './App.css';
 import Content from './components/Content/Content';
-import Header_logo from './components/Header/Headerlogo';
-import Header_text from './components/Header/Headertext';
-import Nav from './components/Nav/Nav';
-import Side_right from './components/Sidebar/Sidebar';
-import User_info from './components/User/Userinfo';
+import Header from './components/Header/Header';
+import Messages from './components/Messages/Messages';
+import Nav from './components/Navigation/Nav';
+import Sidebar from './components/Sidebar/Sidebar';
+
 
 const App = () => {
   return (
     <div className="container">
-      <Header_logo />
-      <Header_text />
-      <Nav />
+      <Header/>
+      <Nav/>
       <Content />
-      <Side_right/>
-      <User_info/>
+      <Sidebar/>
+      {/* <Messages/> */}
     </div>
   );
 }

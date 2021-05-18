@@ -1,10 +1,13 @@
 import React from 'react';
-import paris from './paris.jpeg';
-
+import { Icon, Img, Info, Input } from './Cont_Comp';
+import s from './Content.module.css'
 const Content = () => {
     return(
-      <div className="content_pic">
-          <img src={paris} className="paris"></img>
+      <div className={s.main_container}>
+        <Img/>
+        <Input/>
+        <Icon/>
+        <Info/>
       </div>
     );
 }
