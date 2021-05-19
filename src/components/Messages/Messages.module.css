@@ -1,0 +1,16 @@
+.messWrap{
+    display: flex;
+    flex-direction: row;
+}
+
+.dialog_item{
+    list-style: none;
+    padding: 0.5rem 0;
+}
+
+.conversation{
+    align-self: center;
+    padding-left: 5rem;
+    color: rgb(17, 84, 207);
+   font-size: 1.2em;
+}
