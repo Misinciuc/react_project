@@ -1,27 +1,32 @@
-import React from 'react'; 
-import s from './Messages.module.css'
+import React, { useDebugValue } from 'react'; 
+import style from './Messages.module.css'
 import { NavLink } from 'react-router-dom';
 
-const Dialogs = () => {
+
+const Dialogs = (props) => {
+    debugger;
+    let UserDialog = props.DialConv
+  .map( elem =>  <DialogItem name={elem.name} id={elem.id}/>);
     return (
-           <div className={s.dialog}>
+           <div className={style.dialog}>
                {UserDialog}
            </div>
     )
 }
 
-const Conversation = () => {
+const Conversation = (props) => {
+      let DialMess = props.DialTxt
+      .map( mess =>  <ConvItem message={mess.message} id={mess.id}/>);
     return (
-        <div className={s.conversation}>
+        <div className={style.conversation}>
             {DialMess}
         </div>
     )
 }
 
-
 const ConvItem = (props) => {
     return(
-        <div className={s.conv}>
+        <div className={style.conv}>
              <p>{props.message}</p>
         </div>
     )
@@ -32,7 +37,7 @@ const DialogItem = (props) => {
     return(
         <div>
             <ul>
-                <li className={s.dialog_item}>
+                <li className={style.dialog_item}>
                      <NavLink to={path}>{props.name}</NavLink>
                 </li>
              </ul>
@@ -40,26 +45,8 @@ const DialogItem = (props) => {
     )
 }
 
-let DialConv = [
-    { id: 1, name: 'Iurcik'},
-    { id: 2, name: 'John'},
-    { id: 3, name: 'Peter'},
-    { id: 4, name: 'David'}
-]
-
-
-let DialTxt = [
-    { id: 1, message: 'Hello people'},
-    { id: 2, message: 'Just do it'},
-    { id: 3, message: 'YO YO'},
-    { id: 4, message: 'fifa'}
-]
-
-let UserDialog = DialConv
-.map( dialog => <DialogItem name={dialog.name}
-                             id={dialog.id}/>);
-
-let DialMess = DialTxt
-.map( mess =>  <ConvItem message={mess.message} id={mess.id}/>);
 
 export {Dialogs, Conversation};
+
+
+  

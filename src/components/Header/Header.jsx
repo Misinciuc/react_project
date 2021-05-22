@@ -1,10 +1,10 @@
 import React from 'react';
-import s from './Header.module.css';
+import style from './Header.module.css';
 import {Logo, Btn, Text} from './Head_Components';
 
 const Header = () => {
     return (
-    <div className={s.block}>
+    <div className={style.block}>
         <Logo/>
         <Text/>
         <Btn/>
