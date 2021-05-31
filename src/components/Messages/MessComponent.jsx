@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 
 
 const Dialogs = (props) => {
-    debugger;
     let UserDialog = props.DialConv
   .map( elem =>  <DialogItem name={elem.name} id={elem.id}/>);
     return (
@@ -45,8 +44,22 @@ const DialogItem = (props) => {
     )
 }
 
+const BtnMes = () =>{
+    let newmess = React.createRef();
+    let Addpost = () => {
+        let text = newmess.current.value;
+        alert(text);
+    }
+    return(
+        <div className={style.area}>
+            <button onClick={Addpost}>ADD</button>
+            <textarea placeholder="your post" ref={newmess}></textarea>
+        </div>
+    )
+}
 
-export {Dialogs, Conversation};
+
+export {Dialogs, Conversation, BtnMes};
 
 
   

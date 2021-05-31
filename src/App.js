@@ -9,6 +9,7 @@ import Nav from './components/Navigation/Nav';
 import News from './components/News/News';
 import Set from './components/Set/set';
 import Sidebar from './components/Sidebar/Sidebar';
+import { AddNews } from './redux/state';
 
 
 
@@ -20,8 +21,8 @@ const App = (props) => {
         <Nav/>
         <Sidebar/>
         <Route path='/Content' component={Content}/>
-        <Route path='/Messages'render={ () => <Messages DialConv={props.Apstate.DialConv} DialTxt={props.Apstate.DialTxt}/> }/>
-        <Route path='/News' render={ () => <News MainNews={props.Apstate.MainNews}/>}/>
+        <Route path='/Messages'render={ () => <Messages DialConv={props.Apstate.MesagePage.DialConv} DialTxt={props.Apstate.MesagePage.DialTxt}/> }/>
+        <Route path='/News' render={ () => <News MainNews={props.Apstate.NewsPage.MainNews} AddNews={props.AddNews}/>}/>
         <Route path='/Music' component={Music}/>
         <Route path='/Set' component={Set}/>
       </div>
