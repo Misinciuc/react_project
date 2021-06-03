@@ -1,15 +1,14 @@
-import React, { useDebugValue } from 'react';
+import React, { createRef, useDebugValue } from 'react';
 
 const News = (props) => {
   let TodayNews = props.MainNews.map(elem => <NewsComp news={elem.news} id={elem.id}/>)
     return(
       <div>
       {TodayNews}
-      <AddNews AddNews={props.AddNews} />
+      <NewAdd Add_News={props.Add_News} Update_News={props.Update_News} NewMesTxt={props.NewMesTxt}/>
       </div>
     );
 }
-
 
 const NewsComp = (props) =>{
   return(
@@ -18,17 +17,19 @@ const NewsComp = (props) =>{
       </div>
   )
 }
-
-const AddNews = (props) => {
-  let Area = React.createRef();
-  let Add = () => {
-  let newtxt = Area.current.value;
-    props.AddNews(newtxt);
-  }
+const NewAdd = (props) => {
+  let textarea = React.createRef();
+  let Add = () =>{
+    let newtext = textarea.current.value;
+    props.Add_News(newtext);
+  };
+  const OnNewsChange = () => {
+      props.Update_News();
+  };
     return(
     <div>
       <button onClick={Add}>Add News</button>
-      <textarea ref={Area}></textarea>
+      <textarea onChange={OnNewsChange} ref={textarea} value={props.NewMesTxt}></textarea>
     </div>
   )
 }

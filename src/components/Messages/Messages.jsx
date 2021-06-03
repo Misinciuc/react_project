@@ -9,7 +9,9 @@ const Messages = (props) => {
         <div className={style.messWrap}>
             <Route path='/Messages' render={ () => <Dialogs DialConv={props.DialConv}/> }/>
             <Conversation DialTxt={props.DialTxt}/>
-            <BtnMes />
+            <BtnMes Add_Message={props.Add_Message}
+             Update_Messages={props.Update_Messages}
+             Refresh={props.Refresh}/>
         </div>
         </BrowserRouter>
     )

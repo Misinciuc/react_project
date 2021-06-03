@@ -44,16 +44,19 @@ const DialogItem = (props) => {
     )
 }
 
-const BtnMes = () =>{
+const BtnMes = (props) =>{
     let newmess = React.createRef();
     let Addpost = () => {
-        let text = newmess.current.value;
-        alert(text);
+    let text = newmess.current.value;
+    props.Add_Message(text);
+    };
+    let MessUp = () =>{
+        props.Update_Messages();
     }
     return(
         <div className={style.area}>
             <button onClick={Addpost}>ADD</button>
-            <textarea placeholder="your post" ref={newmess}></textarea>
+            <textarea ref={newmess} onChange={MessUp} value={props.Refresh}></textarea>
         </div>
     )
 }

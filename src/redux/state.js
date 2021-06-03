@@ -1,8 +1,10 @@
-import Messages from "../components/Messages/Messages";
-import { RenderTree } from "../Render";
+let RenderTree = () =>{
+  console.log('state changed');
+}
 
   let state = {
     MesagePage: {
+      Refresh: '',
       DialConv: [
         { id: 1, name: 'Iurcik'},
         { id: 2, name: 'John'},
@@ -17,6 +19,7 @@ import { RenderTree } from "../Render";
       ]
     },
      NewsPage: {
+       NewMesTxt: '',
       MainNews: [
         { id: 1, news: 'wheather'},
         { id: 2, news: 'It is a beautiful day'},
@@ -24,16 +27,39 @@ import { RenderTree } from "../Render";
         { id: 4, news: 'outsideß'}
       ]
      }
-     
   }
-export let AddNews = (NewMess) => { 
- let Message = {
-   id: 5,
-   news: NewMess
- };
-  state.NewsPage.MainNews.push(Message);
-  debugger;
- RenderTree(state);
+   const Add_News = (something) => {
+    let News ={
+      id: 5,
+      news: something
+       };
+    state.NewsPage.MainNews.push(News)
+    state.NewsPage.NewMesTxt = '';
+    RenderTree(state);
+   };
 
-}
-  export default state;
+   const Update_News = (updated) => {
+      state.NewsPage.NewMesTxt = updated;
+      RenderTree(state);
+    };
+
+    const Add_Message = (AddedMess) =>{
+      let New_Mess = {
+        id: 5,
+        message: AddedMess
+      };
+      state.MesagePage.DialTxt.push(New_Mess);
+      state.MesagePage.Refresh = '';
+      RenderTree(state);
+    }
+    
+    const Update_Messages = (upd) => {
+      state.MesagePage.Refresh = upd;
+      RenderTree(state);
+    };
+
+    const Subscribe = (Observer) =>{
+      RenderTree = Observer;
+    }
+
+  export {state, Add_News, Update_News, Add_Message, Update_Messages, Subscribe};
