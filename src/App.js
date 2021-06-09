@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useDebugValue } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
 import Content from './components/Content/Content';
@@ -9,34 +9,33 @@ import Nav from './components/Navigation/Nav';
 import News from './components/News/News';
 import Set from './components/Set/set';
 import Sidebar from './components/Sidebar/Sidebar';
-import { News_Text } from './redux/state';
+
 
 
 
 const App = (props) => {
-    return(
+  return (
     <BrowserRouter>
       <div className="container">
-        <Header/>
-        <Nav/>
-        <Sidebar/>
-        <Route path='/Content' component={Content}/>
-        <Route path='/Messages'render={ () => 
-        <Messages DialConv={props.Apstate.MesagePage.DialConv} 
-                  DialTxt={props.Apstate.MesagePage.DialTxt}
-                  Add_Message={props.Add_Message}
-                  Update_Messages={props.Update_Messages}
-                  Refresh={props.Apstate.MesagePage.Refresh}/> }/>
-        <Route path='/News' render={ () => 
-        <News MainNews={props.Apstate.NewsPage.MainNews}
-        Add_News={props.Add_News}
-        Update_News={props.Update_News}
-        NewMesTxt={props.Apstate.NewsPage.NewMesTxt}/>}/>
-        <Route path='/Music' component={Music}/>
-        <Route path='/Set' component={Set}/>
+        <Header />
+        <Nav />
+        <Sidebar />
+        <Route path='/Content' component={Content} />
+        <Route path='/Messages' render={() =>
+          <Messages DialConv={props.state.MesagePage.DialConv}
+            DialTxt={props.state.MesagePage.DialTxt}
+            Message_Add={props.Message_Add}
+            Message_Update={props.Message_Update}
+            Refresh={props.state.MesagePage.Refresh} />} />
+        <Route path='/News' render={() =>
+          <News MainNews={props.state.NewsPage.MainNews}
+            NewsAdd={props.NewsAdd}
+            Update_News={props.Update_News}
+            NewMesTxt={props.state.NewsPage.NewMesTxt} />} />
+        <Route path='/Music' component={Music} />
+        <Route path='/Set' component={Set} />
       </div>
     </BrowserRouter>
-    )
+  )
 }
 export default App;
-  

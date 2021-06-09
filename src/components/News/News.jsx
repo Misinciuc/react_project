@@ -1,35 +1,38 @@
 import React, { createRef, useDebugValue } from 'react';
-
 const News = (props) => {
-  let TodayNews = props.MainNews.map(elem => <NewsComp news={elem.news} id={elem.id}/>)
-    return(
-      <div>
+  let TodayNews = props.MainNews.map(elem => <NewsComp news={elem.news} id={elem.id} />)
+  return (
+    <div>
       {TodayNews}
-      <NewAdd Add_News={props.Add_News} Update_News={props.Update_News} NewMesTxt={props.NewMesTxt}/>
-      </div>
-    );
+      <NewAdd NewsAdd={props.NewsAdd} NewMesTxt={props.NewMesTxt} Update_News={props.Update_News} />
+    </div>
+  );
 }
 
-const NewsComp = (props) =>{
-  return(
-      <div className="news">
-          <p>{props.news}</p>
-      </div>
+const NewsComp = (props) => {
+  return (
+    <div className="news">
+      <p>{props.news}</p>
+    </div>
   )
 }
+
 const NewAdd = (props) => {
-  let textarea = React.createRef();
-  let Add = () =>{
-    let newtext = textarea.current.value;
-    props.Add_News(newtext);
-  };
-  const OnNewsChange = () => {
-      props.Update_News();
-  };
-    return(
+  let NewsElem = React.createRef();
+
+  let AddNews = () => {
+    props.NewsAdd();
+  }
+
+  let UpdateNews = () => {
+    let text = NewsElem.current.value;
+    props.Update_News(text);
+  }
+
+  return (
     <div>
-      <button onClick={Add}>Add News</button>
-      <textarea onChange={OnNewsChange} ref={textarea} value={props.NewMesTxt}></textarea>
+      <button onClick={AddNews}>Add News</button>
+      <textarea onChange={UpdateNews} ref={NewsElem} value={props.NewMesTxt}></textarea>
     </div>
   )
 }
