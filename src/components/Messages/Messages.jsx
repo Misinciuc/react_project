@@ -5,15 +5,13 @@ import { BtnMes, Conversation, Dialogs } from './MessComponent';
 
 const Messages = (props) => {
     return (
-        <BrowserRouter>
-            <div className={style.messWrap}>
-                <Route path='/Messages' render={() => <Dialogs DialConv={props.DialConv} />} />
-                <Conversation DialTxt={props.DialTxt} />
-                <BtnMes
-                    dispath={props.dispath}
-                    Refresh={props.Refresh} />
-            </div>
-        </BrowserRouter>
+        <div className={style.messWrap}>
+            <Route path='/Messages' render={() => <Dialogs DialConv={props.DialConv} />} />
+            <Conversation DialTxt={props.DialTxt} />
+            <BtnMes
+                dispath={props.dispath}
+                Refresh={props.Refresh} />
+        </div>
     )
 }
 

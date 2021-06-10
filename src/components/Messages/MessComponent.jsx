@@ -33,7 +33,7 @@ const ConvItem = (props) => {
 }
 
 const DialogItem = (props) => {
-    let path = "/Messages/" + props.id;
+    let path = "/Messages" + props.id;
     return (
         <div>
             <ul>

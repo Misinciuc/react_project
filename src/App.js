@@ -14,26 +14,25 @@ import Sidebar from './components/Sidebar/Sidebar';
 
 
 const App = (props) => {
+  debugger;
   return (
-    <BrowserRouter>
-      <div className="container">
-        <Header />
-        <Nav />
-        <Sidebar />
-        <Route path='/Content' component={Content} />
-        <Route path='/Messages' render={() =>
-          <Messages DialConv={props.state.MesagePage.DialConv}
-            DialTxt={props.state.MesagePage.DialTxt}
-            dispath={props.dispath}
-            Refresh={props.state.MesagePage.Refresh} />} />
-        <Route path='/News' render={() =>
-          <News MainNews={props.state.NewsPage.MainNews}
-            dispath={props.dispath}
-            NewMesTxt={props.state.NewsPage.NewMesTxt} />} />
-        <Route path='/Music' component={Music} />
-        <Route path='/Set' component={Set} />
-      </div>
-    </BrowserRouter>
+    <div className="container">
+      <Header />
+      <Nav />
+      <Sidebar />
+      <Route path='/Content' component={Content} />
+      <Route path='/Messages' render={() =>
+        <Messages DialConv={props.state.MesagePage.DialConv}
+          DialTxt={props.state.MesagePage.DialTxt}
+          dispath={props.dispath}
+          Refresh={props.state.MesagePage.Refresh} />} />
+      <Route path='/News' render={() =>
+        <News MainNews={props.state.NewsPage.MainNews}
+          dispath={props.dispath}
+          NewMesTxt={props.state.NewsPage.NewMesTxt} />} />
+      <Route path='/Music' component={Music} />
+      <Route path='/Set' component={Set} />
+    </div>
   )
 }
 export default App;
