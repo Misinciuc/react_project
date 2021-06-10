@@ -1,4 +1,5 @@
 import React, { createRef, useDebugValue } from 'react';
+import { News_AddActionCreator, UpdateNewsActionCreator } from '../../redux/Store'
 const News = (props) => {
   let TodayNews = props.MainNews.map(elem => <NewsComp news={elem.news} id={elem.id} />)
   return (
@@ -21,12 +22,12 @@ const NewAdd = (props) => {
   let NewsElem = React.createRef();
 
   let AddNews = () => {
-    props.dispath({ type: 'NEWS_ADD' });
+    props.dispath(News_AddActionCreator());
   }
 
   let UpdateNews = () => {
     let text = NewsElem.current.value;
-    props.dispath({ type: 'UPDATE_NEWS', txtnew: text });
+    props.dispath(UpdateNewsActionCreator(text));
   }
 
   return (

@@ -60,6 +60,31 @@ let store = {
     }
 
   }
+}
 
+export const News_AddActionCreator = () => {
+  return {
+    type: 'NEWS_ADD'
+  }
+}
+
+export const UpdateNewsActionCreator = (text) => {
+  return {
+    type: 'UPDATE_NEWS',
+    txtnew: text
+  }
+}
+
+export const Message_AddActionCreator = () => {
+  return {
+    type: 'MESSAGE_ADD'
+  }
+}
+
+export const Message_UpdateActionCreator = (mess) => {
+  return {
+    type: 'MESSAGE_UPDATE',
+    mess: mess
+  }
 }
 export default store;
