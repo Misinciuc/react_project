@@ -4,7 +4,7 @@ const News = (props) => {
   return (
     <div>
       {TodayNews}
-      <NewAdd NewsAdd={props.NewsAdd} NewMesTxt={props.NewMesTxt} Update_News={props.Update_News} />
+      <NewAdd dispath={props.dispath} NewMesTxt={props.NewMesTxt} dispath={props.dispath} />
     </div>
   );
 }
@@ -21,12 +21,12 @@ const NewAdd = (props) => {
   let NewsElem = React.createRef();
 
   let AddNews = () => {
-    props.NewsAdd();
+    props.dispath({ type: 'NEWS_ADD' });
   }
 
   let UpdateNews = () => {
     let text = NewsElem.current.value;
-    props.Update_News(text);
+    props.dispath({ type: 'UPDATE_NEWS', txtnew: text });
   }
 
   return (

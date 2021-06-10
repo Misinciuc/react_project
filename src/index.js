@@ -8,10 +8,7 @@ let RenderTree = (state) => {
     ReactDOM.render(
         <React.StrictMode>
             <App state={store.getState()}
-                NewsAdd={store.NewsAdd.bind(store)}
-                Update_News={store.Update_News.bind(store)}
-                Message_Add={store.Message_Add.bind(store)}
-                Message_Update={store.Message_Update.bind(store)} />
+                dispath={store.dispath.bind(store)} />
         </React.StrictMode>,
         document.getElementById("root")
     );

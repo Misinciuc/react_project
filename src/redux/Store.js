@@ -31,34 +31,35 @@ let store = {
   RenderTree() {
     console.log('change');
   },
-  NewsAdd() {
-    let newtxt = {
-      id: 5,
-      news: this._state.NewsPage.NewMesTxt
-    };
-    this._state.NewsPage.MainNews.push(newtxt);
-    this._state.NewsPage.NewMesTxt = '';
-    this.RenderTree(this._state);
-  },
-  Update_News(fignea) {
-    this._state.NewsPage.NewMesTxt = fignea;
-    this.RenderTree(this._state);
-  },
-  Message_Add() {
-    let insert = {
-      id: 5,
-      message: this._state.MesagePage.Refresh
-    }
-    this._state.MesagePage.DialTxt.push(insert);
-    this._state.MesagePage.Refresh = '';
-    this.RenderTree(this._state);
-  },
-  Message_Update(mess) {
-    this._state.MesagePage.Refresh = mess;
-    this.RenderTree(this._state);
-  },
   subscribe(observer) {
     this.RenderTree = observer;
+  },
+  dispath(action) {
+    if (action.type === 'NEWS_ADD') {
+      let newtxt = {
+        id: 5,
+        news: this._state.NewsPage.NewMesTxt
+      };
+      this._state.NewsPage.MainNews.push(newtxt);
+      this._state.NewsPage.NewMesTxt = '';
+      this.RenderTree(this._state);
+    } else if (action.type === 'UPDATE_NEWS') {
+      this._state.NewsPage.NewMesTxt = action.txtnew;
+      this.RenderTree(this._state);
+    } else if (action.type === 'MESSAGE_ADD') {
+      let insert = {
+        id: 5,
+        message: this._state.MesagePage.Refresh
+      }
+      this._state.MesagePage.DialTxt.push(insert);
+      this._state.MesagePage.Refresh = '';
+      this.RenderTree(this._state);
+    } else if (action.type === 'MESSAGE_UPDATE') {
+      this._state.MesagePage.Refresh = action.mess;
+      this.RenderTree(this._state);
+    }
+
   }
+
 }
 export default store;

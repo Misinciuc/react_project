@@ -45,15 +45,14 @@ const DialogItem = (props) => {
 }
 
 const BtnMes = (props) => {
-    debugger;
     let textarea = React.createRef();
 
     let New_Mess = () => {
-        props.Message_Add()
+        props.dispath({ type: 'MESSAGE_ADD' })
     }
     let Update_Mess = () => {
         let mess = textarea.current.value;
-        props.Message_Update(mess)
+        props.dispath({ type: 'MESSAGE_UPDATE', mess: mess })
     }
     return (
         <div className={style.area}>
