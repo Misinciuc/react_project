@@ -1,7 +1,7 @@
 import React, { useDebugValue } from 'react';
 import style from './Messages.module.css'
 import { NavLink } from 'react-router-dom';
-import { Message_AddActionCreator, Message_UpdateActionCreator } from '../../redux/Store';
+import { Message_AddActionCreator, Message_UpdateActionCreator } from '../../redux/Message_Reducer';
 
 
 const Dialogs = (props) => {
@@ -49,11 +49,11 @@ const BtnMes = (props) => {
     let textarea = React.createRef();
 
     let New_Mess = () => {
-        props.dispath(Message_AddActionCreator())
+        props.dispatch(Message_AddActionCreator())
     }
     let Update_Mess = () => {
         let mess = textarea.current.value;
-        props.dispath(Message_UpdateActionCreator(mess))
+        props.dispatch(Message_UpdateActionCreator(mess))
     }
     return (
         <div className={style.area}>

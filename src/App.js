@@ -24,11 +24,11 @@ const App = (props) => {
       <Route path='/Messages' render={() =>
         <Messages DialConv={props.state.MesagePage.DialConv}
           DialTxt={props.state.MesagePage.DialTxt}
-          dispath={props.dispath}
+          dispatch={props.dispatch}
           Refresh={props.state.MesagePage.Refresh} />} />
       <Route path='/News' render={() =>
         <News MainNews={props.state.NewsPage.MainNews}
-          dispath={props.dispath}
+          dispatch={props.dispatch}
           NewMesTxt={props.state.NewsPage.NewMesTxt} />} />
       <Route path='/Music' component={Music} />
       <Route path='/Set' component={Set} />

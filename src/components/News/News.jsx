@@ -1,11 +1,11 @@
 import React, { createRef, useDebugValue } from 'react';
-import { News_AddActionCreator, UpdateNewsActionCreator } from '../../redux/Store'
+import { News_AddActionCreator, UpdateNewsActionCreator } from '../../redux/News_Reducer'
 const News = (props) => {
   let TodayNews = props.MainNews.map(elem => <NewsComp news={elem.news} id={elem.id} />)
   return (
     <div>
       {TodayNews}
-      <NewAdd dispath={props.dispath} NewMesTxt={props.NewMesTxt} dispath={props.dispath} />
+      <NewAdd dispatch={props.dispatch} NewMesTxt={props.NewMesTxt} />
     </div>
   );
 }
@@ -22,12 +22,13 @@ const NewAdd = (props) => {
   let NewsElem = React.createRef();
 
   let AddNews = () => {
-    props.dispath(News_AddActionCreator());
+    props.dispatch(News_AddActionCreator());
   }
 
   let UpdateNews = () => {
+    debugger;
     let text = NewsElem.current.value;
-    props.dispath(UpdateNewsActionCreator(text));
+    props.dispatch(UpdateNewsActionCreator(text));
   }
 
   return (

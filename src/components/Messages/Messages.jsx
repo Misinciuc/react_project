@@ -9,7 +9,7 @@ const Messages = (props) => {
             <Route path='/Messages' render={() => <Dialogs DialConv={props.DialConv} />} />
             <Conversation DialTxt={props.DialTxt} />
             <BtnMes
-                dispath={props.dispath}
+                dispatch={props.dispatch}
                 Refresh={props.Refresh} />
         </div>
     )

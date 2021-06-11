@@ -1,3 +1,6 @@
+import MessageReducer from "./Message_Reducer";
+import NewsReducer from "./News_Reducer";
+
 let store = {
   _state: {
     MesagePage: {
@@ -34,57 +37,11 @@ let store = {
   subscribe(observer) {
     this.RenderTree = observer;
   },
-  dispath(action) {
-    if (action.type === 'NEWS_ADD') {
-      let newtxt = {
-        id: 5,
-        news: this._state.NewsPage.NewMesTxt
-      };
-      this._state.NewsPage.MainNews.push(newtxt);
-      this._state.NewsPage.NewMesTxt = '';
-      this.RenderTree(this._state);
-    } else if (action.type === 'UPDATE_NEWS') {
-      this._state.NewsPage.NewMesTxt = action.txtnew;
-      this.RenderTree(this._state);
-    } else if (action.type === 'MESSAGE_ADD') {
-      let insert = {
-        id: 5,
-        message: this._state.MesagePage.Refresh
-      }
-      this._state.MesagePage.DialTxt.push(insert);
-      this._state.MesagePage.Refresh = '';
-      this.RenderTree(this._state);
-    } else if (action.type === 'MESSAGE_UPDATE') {
-      this._state.MesagePage.Refresh = action.mess;
-      this.RenderTree(this._state);
-    }
-
+  dispatch(action) {
+    this._state.NewsPage = NewsReducer(this._state.NewsPage, action);
+    this._state.MesagePage = MessageReducer(this._state.MesagePage, action);
+    this.RenderTree(this._state);
   }
 }
 
-export const News_AddActionCreator = () => {
-  return {
-    type: 'NEWS_ADD'
-  }
-}
-
-export const UpdateNewsActionCreator = (text) => {
-  return {
-    type: 'UPDATE_NEWS',
-    txtnew: text
-  }
-}
-
-export const Message_AddActionCreator = () => {
-  return {
-    type: 'MESSAGE_ADD'
-  }
-}
-
-export const Message_UpdateActionCreator = (mess) => {
-  return {
-    type: 'MESSAGE_UPDATE',
-    mess: mess
-  }
-}
 export default store;  
