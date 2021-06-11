@@ -6,7 +6,7 @@ import Header from './components/Header/Header';
 import Messages from './components/Messages/Messages';
 import Music from './components/Music/Music';
 import Nav from './components/Navigation/Nav';
-import News from './components/News/News';
+import NewsContainer from './components/News/NewsContainer';
 import Set from './components/Set/set';
 import Sidebar from './components/Sidebar/Sidebar';
 
@@ -14,7 +14,6 @@ import Sidebar from './components/Sidebar/Sidebar';
 
 
 const App = (props) => {
-  debugger;
   return (
     <div className="container">
       <Header />
@@ -27,9 +26,7 @@ const App = (props) => {
           dispatch={props.dispatch}
           Refresh={props.state.MesagePage.Refresh} />} />
       <Route path='/News' render={() =>
-        <News MainNews={props.state.NewsPage.MainNews}
-          dispatch={props.dispatch}
-          NewMesTxt={props.state.NewsPage.NewMesTxt} />} />
+        <NewsContainer store={props.store} />} />
       <Route path='/Music' component={Music} />
       <Route path='/Set' component={Set} />
     </div>

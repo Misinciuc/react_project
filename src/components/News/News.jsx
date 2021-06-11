@@ -1,11 +1,16 @@
 import React, { createRef, useDebugValue } from 'react';
 import { News_AddActionCreator, UpdateNewsActionCreator } from '../../redux/News_Reducer'
+
 const News = (props) => {
-  let TodayNews = props.MainNews.map(elem => <NewsComp news={elem.news} id={elem.id} />)
+  debugger;
+  let TodayNews = props.NewsPage.MainNews.map(elem =>
+    <NewsComp news={elem.news} id={elem.id} />)
   return (
     <div>
       {TodayNews}
-      <NewAdd dispatch={props.dispatch} NewMesTxt={props.NewMesTxt} />
+      <NewAdd NewMesTxt={props.NewsPage.NewMesTxt}
+        AddNews={props.AddNews}
+        UpdateNews={props.UpdateNews} />
     </div>
   );
 }
@@ -20,21 +25,18 @@ const NewsComp = (props) => {
 
 const NewAdd = (props) => {
   let NewsElem = React.createRef();
-
-  let AddNews = () => {
-    props.dispatch(News_AddActionCreator());
+  let onAddNews = () => {
+    props.AddNews();
   }
 
-  let UpdateNews = () => {
-    debugger;
+  let onUpdateNews = () => {
     let text = NewsElem.current.value;
-    props.dispatch(UpdateNewsActionCreator(text));
+    props.UpdateNews(text)
   }
-
   return (
     <div>
-      <button onClick={AddNews}>Add News</button>
-      <textarea onChange={UpdateNews} ref={NewsElem} value={props.NewMesTxt}></textarea>
+      <button onClick={onAddNews}>Add News</button>
+      <textarea onChange={onUpdateNews} ref={NewsElem} value={props.NewMesTxt}></textarea>
     </div>
   )
 }
